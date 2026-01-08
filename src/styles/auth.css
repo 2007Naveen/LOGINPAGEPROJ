@@ -1,57 +1,143 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: #eef5ff;
 }
 
-.auth-container {
-    height: 100vh;
+
+/* HEADER */
+
+.eci-header {
+    background: #5b4cc4;
+    color: white;
+    padding: 10px 40px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
-.auth-box {
+.eci-header h1 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.eci-header .nav-btns a {
+    color: #333;
+    background: #fff;
+    padding: 6px 12px;
+    margin-left: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+/* CARD */
+
+.eci-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.eci-card {
     background: white;
-    padding: 30px;
-    width: 320px;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    width: 420px;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-.auth-box h2 {
+.eci-card h2 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
-.auth-box input {
+.eci-card p {
+    text-align: center;
+    margin-top: 0;
+}
+
+.eci-card a {
+    color: #1a73e8;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+
+/* TABS */
+
+.tabs {
+    display: flex;
+    margin: 20px 0;
+    border-bottom: 2px solid #ddd;
+}
+
+.tab {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.tab.active {
+    border-bottom: 3px solid #1a73e8;
+    color: #1a73e8;
+}
+
+
+/* FORM */
+
+label {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+input {
     width: 100%;
     padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 5px;
+    margin: 6px 0 14px;
     border: 1px solid #ccc;
+    border-radius: 6px;
 }
 
-.auth-box button {
-    width: 100%;
+.captcha-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.captcha-img {
+    background: #e0e0e0;
     padding: 10px;
-    background: #667eea;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #6ea8fe;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
+    font-size: 16px;
     cursor: pointer;
 }
 
-.auth-box button:hover {
-    background: #5a67d8;
+button:hover {
+    background: #4f8df6;
 }
 
-.auth-box p {
+
+/* FOOTER */
+
+.footer {
+    margin-top: 60px;
+    background: #5b4cc4;
+    color: white;
     text-align: center;
-    margin-top: 10px;
-}
-
-.auth-box a {
-    color: #667eea;
-    text-decoration: none;
+    padding: 10px;
+    font-size: 14px;
 }

@@ -1,66 +1,56 @@
-import { useState } from "react";
-import axios from "axios";
 import "../styles/auth.css";
+import { useState } from "react";
 
 const Login = () => {
-  const [form, setForm] = useState({ email: "", password: "" });
-
-  const handleChange = (e) =>
-    setForm({ ...form, [e.target.name]: e.target.value });
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post("http://localhost:5000/api/auth/login", form);
-      alert("Login successful");
-    } catch {
-      alert("Invalid credentials");
-    }
-  };
+  const [tab, setTab] = useState("resident");
 
   return (
     <>
-      <div className="header">CGPA PORTAL – LOGIN</div>
+      <div className="eci-header">
+        <h1>NAVEENKUMAR R</h1>
+        <div className="nav-btns">
+          <a href="/">Login</a>
+          <a href="/signup">Sign-Up</a>
+        </div>
+      </div>
 
-      <div className="auth-page">
-        <div className="left-panel">
-          <h1>Welcome to CGPA Portal</h1>
+      <div className="eci-container">
+        <div className="eci-card">
+          <h2>Login</h2>
           <p>
-            This portal allows students to securely login using their registered
-            institutional email and ID card number to access academic details.
+            Do not have an account? <a href="/signup">Sign-Up</a>
           </p>
+
+          <div className="tabs">
+            <div
+              className={`tab ${tab === "resident" ? "active" : ""}`}
+              onClick={() => setTab("resident")}
+            >
+             EDUCONNECT-STUDENT EDUCATION
+            </div>
+          </div>
+
+          <label>Registered Mobile No./Email ID/EPIC No.*</label>
+          <input placeholder="Enter registered Mobile No./Email ID" />
+
+          <div className="captcha-box">
+            <div className="captcha-img">9 g 7 s</div>
+            <span>↻</span>
+          </div>
+
+          <label>Captcha *</label>
+          <input placeholder="Enter Captcha" />
+
+          <button>Request OTP</button>
         </div>
+      </div>
 
-        <div className="right-panel">
-          <form className="auth-form" onSubmit={handleSubmit}>
-            <h2>Login</h2>
-
-            <label>Email ID</label>
-            <input
-              name="email"
-              type="email"
-              onChange={handleChange}
-              required
-            />
-
-            <label>Password</label>
-            <input
-              name="password"
-              type="password"
-              onChange={handleChange}
-              required
-            />
-
-            <button type="submit">Login</button>
-
-            <p>
-              New user? <a href="/signup">Register here</a>
-            </p>
-          </form>
-        </div>
+      <div className="footer">
+        Copyright © K.S.R College of Engineering, T.gode,. 2025 | Privacy Policy
       </div>
     </>
   );
 };
 
 export default Login;
+

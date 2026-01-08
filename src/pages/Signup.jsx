@@ -1,70 +1,55 @@
-import { useState } from "react";
-import axios from "axios";
 import "../styles/auth.css";
+import { useState } from "react";
 
 const Signup = () => {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
-
-  const handleChange = (e) =>
-    setForm({ ...form, [e.target.name]: e.target.value });
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post("http://localhost:5000/api/auth/signup", form);
-      alert("Registration successful");
-    } catch {
-      alert("Signup failed");
-    }
-  };
+  const [tab, setTab] = useState("resident");
 
   return (
     <>
-      <div className="header">CGPA PORTAL – SIGNUP</div>
+      <div className="eci-header">
+        <h1>EDUCONNECT-STUDENT EDUCATION</h1>
+        <div className="nav-btns">
+          <a href="/">Login</a>
+          <a href="/signup">Sign-Up</a>
+        </div>
+      </div>
 
-      <div className="auth-page">
-        <div className="left-panel">
-          <h1>Student Registration</h1>
+      <div className="eci-container">
+        <div className="eci-card">
+          <h2>Sign-Up</h2>
           <p>
-            Register using your institutional email ID. Only authorized students
-            can access the CGPA calculator portal.
+            Already have an account? <a href="/">Login</a>
           </p>
+
+          <div className="tabs">
+            <div
+              className={`tab ${tab === "resident" ? "active" : ""}`}
+              onClick={() => setTab("resident")}
+            >
+              EDU CONNECT-PLUGIN
+            </div>
+          </div>
+          
+          <label>Mobile Number *</label>
+          <input placeholder="Enter Mobile Number" />
+
+          <label>Email address (optional)</label>
+          <input placeholder="Enter email address (optional)" />
+
+          <div className="captcha-box">
+            <div className="captcha-img">7 a n g</div>
+            <span>↻</span>
+          </div>
+
+          <label>Captcha *</label>
+          <input placeholder="Enter Captcha" />
+
+          <button>Continue</button>
         </div>
+      </div>
 
-        <div className="right-panel">
-          <form className="auth-form" onSubmit={handleSubmit}>
-            <h2>Signup</h2>
-
-            <label>Full Name</label>
-            <input name="name" onChange={handleChange} required />
-
-            <label>Email ID</label>
-            <input
-              name="email"
-              type="email"
-              onChange={handleChange}
-              required
-            />
-
-            <label>Password</label>
-            <input
-              name="password"
-              type="password"
-              onChange={handleChange}
-              required
-            />
-
-            <button type="submit">Register</button>
-
-            <p>
-              Already registered? <a href="/">Login</a>
-            </p>
-          </form>
-        </div>
+      <div className="footer">
+        Copyright © K.S.R College of Engineering, T.gode,. 2025 | Privacy Policy
       </div>
     </>
   );
