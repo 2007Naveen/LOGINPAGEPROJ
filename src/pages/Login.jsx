@@ -32,7 +32,15 @@ const Login = () => {
   };
 
   return (
+    
     <div className="login-page eci-layout">
+            <header className="eci-header">
+        <h1>NK-EDCNT</h1>
+        <div className="nav-btns">
+          <a href="/">Login</a>
+          <a href="/signup" className="active">Sign-Up</a>
+        </div>
+      </header>
       <div className="eci-body">
         <div className="eci-card">
 
