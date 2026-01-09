@@ -1,0 +1,75 @@
+import "../styles/auth.css";
+import { useState } from "react";
+
+const Login = () => {
+  const [captcha, setCaptcha] = useState("32q9J");
+
+  const refreshCaptcha = () => {
+    const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+    let text = "";
+    for (let i = 0; i < 5; i++) {
+      text += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    setCaptcha(text);
+  };
+
+  return (
+    <div className="login-layout">
+
+      {/* HEADER */}
+      <header className="login-header">
+        <h1>NK-EDCNT</h1>
+        <div className="login-nav">
+          <a href="/" className="active">Login</a>
+          <a href="/signup">Sign-Up</a>
+        </div>
+      </header>
+
+      {/* BODY */}
+      <main className="login-body">
+        <div className="login-card">
+
+          <h2>Login</h2>
+          <p className="login-signup-text">
+            Do not have an account? <a href="/signup">Sign-Up</a>
+          </p>
+
+          {/* ELECTOR TYPE */}
+          <div className="login-tabs"></div>
+
+          <label>
+            Registered Mobile No./Email ID.* <span>*</span>
+          </label>
+          <input placeholder="Enter registered Mobile No./Email ID/EPIC No." />
+
+          {/* CAPTCHA */}
+          <div className="login-captcha-row">
+            <div className="login-captcha-box">{captcha}</div>
+            <button
+              type="button"
+              className="login-captcha-refresh"
+              onClick={refreshCaptcha}
+            >
+              ↻
+            </button>
+          </div>
+
+          <label>
+            Captcha <span>*</span>
+          </label>
+          <input placeholder="Enter Captcha" />
+
+          <button className="login-btn">Request OTP</button>
+        </div>
+      </main>
+
+      {/* FOOTER */}
+      <footer className="login-footer">
+        Copyright © K.S.R College of Engineering, T.gode., 2025 | Privacy Policy
+      </footer>
+
+    </div>
+  );
+};
+
+export default Login;

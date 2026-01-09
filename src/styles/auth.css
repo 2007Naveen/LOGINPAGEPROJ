@@ -1,64 +1,276 @@
-body {
+/* RESET */
+
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    height: 100%;
     font-family: Arial, sans-serif;
-    background: #eef5ff;
+}
+
+
+/* LAYOUT */
+
+.eci-layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 
 /* HEADER */
 
 .eci-header {
-    background: #5b4cc4;
+    height: 64px;
+    background: #5a4fcf;
     color: white;
-    padding: 10px 40px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
 }
 
 .eci-header h1 {
-    font-size: 18px;
-    margin: 0;
+    font-size: 22px;
 }
 
-.eci-header .nav-btns a {
-    color: #333;
-    background: #fff;
-    padding: 6px 12px;
+.nav-btns a {
+    background: white;
+    color: #000;
+    padding: 6px 16px;
+    border-radius: 6px;
     margin-left: 10px;
-    border-radius: 4px;
-    text-decoration: none;
     font-weight: 600;
+    text-decoration: none;
+}
+
+.nav-btns a.active {
+    background: #e8ebff;
+}
+
+
+/* BODY */
+
+.eci-body {
+    flex: 1;
+    background: #eef4fb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
 /* CARD */
 
-.eci-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-}
-
 .eci-card {
+    width: 430px;
     background: white;
-    width: 420px;
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
 .eci-card h2 {
     text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
 }
 
-.eci-card p {
+.login-link {
     text-align: center;
-    margin-top: 0;
+    margin-bottom: 16px;
 }
 
-.eci-card a {
+.login-link a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+/* ELECTOR TABS */
+
+.elector-tabs {
+    display: flex;
+    gap: 20px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.elector-tabs span {
+    padding-bottom: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.elector-tabs .active {
+    border-bottom: 3px solid #1a73e8;
+    color: #1a73e8;
+}
+
+
+/* LABELS */
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-top: 14px;
+    margin-bottom: 4px;
+}
+
+label span {
+    color: red;
+}
+
+
+/* INPUTS */
+
+input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+
+/* CAPTCHA */
+
+.captcha-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 16px 0 6px;
+}
+
+.captcha-box {
+    padding: 10px 20px;
+    background: #f1f1f1;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    border-radius: 6px;
+    user-select: none;
+}
+
+.captcha-refresh {
+    border: none;
+    background: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+
+/* BUTTON */
+
+.primary-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background: #6fa3ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+/* FOOTER */
+
+.eci-footer {
+    height: 50px;
+    background: #5a4fcf;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+
+/* ========================= */
+
+
+/* LOGIN PAGE (ISOLATED) */
+
+
+/* ========================= */
+
+.login-layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* HEADER */
+
+.login-header {
+    height: 64px;
+    background: #5a4fcf;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+}
+
+.login-header h1 {
+    font-size: 22px;
+}
+
+.login-nav a {
+    background: white;
+    color: #000;
+    padding: 6px 16px;
+    border-radius: 6px;
+    margin-left: 10px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.login-nav a.active {
+    background: #e8ebff;
+}
+
+
+/* BODY */
+
+.login-body {
+    flex: 1;
+    background: #eef4fb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* CARD */
+
+.login-card {
+    width: 440px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.login-card h2 {
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.login-signup-text {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.login-signup-text a {
     color: #1a73e8;
     font-weight: 600;
     text-decoration: none;
@@ -67,58 +279,83 @@ body {
 
 /* TABS */
 
-.tabs {
+.login-tabs {
     display: flex;
-    margin: 20px 0;
-    border-bottom: 2px solid #ddd;
+    gap: 20px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
 }
 
-.tab {
-    flex: 1;
-    padding: 10px;
-    text-align: center;
+.login-tabs span {
+    font-weight: 600;
+    padding-bottom: 10px;
     cursor: pointer;
-    font-weight: 600;
 }
 
-.tab.active {
-    border-bottom: 3px solid #1a73e8;
+.login-tabs .active {
     color: #1a73e8;
+    border-bottom: 3px solid #1a73e8;
 }
 
 
-/* FORM */
+/* LABELS */
 
-label {
+.login-card label {
+    display: block;
     font-weight: 600;
-    font-size: 14px;
+    margin-top: 14px;
+    margin-bottom: 4px;
 }
 
-input {
+.login-card span {
+    color: red;
+}
+
+
+/* INPUT */
+
+.login-card input {
     width: 100%;
     padding: 10px;
-    margin: 6px 0 14px;
-    border: 1px solid #ccc;
     border-radius: 6px;
+    border: 1px solid #ccc;
 }
 
-.captcha-box {
+
+/* CAPTCHA */
+
+.login-captcha-row {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    gap: 10px;
+    margin: 16px 0 6px;
 }
 
-.captcha-img {
-    background: #e0e0e0;
-    padding: 10px;
+.login-captcha-box {
+    padding: 10px 22px;
+    background: #f1f1f1;
+    font-size: 20px;
     font-weight: bold;
-    margin-right: 10px;
+    letter-spacing: 4px;
+    border-radius: 6px;
+    user-select: none;
 }
 
-button {
+.login-captcha-refresh {
+    border: none;
+    background: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+
+/* BUTTON */
+
+.login-btn {
     width: 100%;
+    margin-top: 20px;
     padding: 12px;
-    background: #6ea8fe;
+    background: #6fa3ff;
     color: white;
     border: none;
     border-radius: 6px;
@@ -126,18 +363,120 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    background: #4f8df6;
-}
-
 
 /* FOOTER */
 
-.footer {
-    margin-top: 60px;
-    background: #5b4cc4;
+.login-footer {
+    height: 50px;
+    background: #5a4fcf;
     color: white;
-    text-align: center;
-    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 14px;
+}
+
+
+/* ========================================= */
+
+
+/* OTP PAGE — COMPLETELY ISOLATED STYLES */
+
+
+/* ========================================= */
+
+.otp-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #eef4fb;
+}
+
+.otp-body {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* CARD */
+
+.otp-card {
+    width: 420px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    text-align: center;
+}
+
+
+/* BACK */
+
+.otp-back {
+    text-align: left;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 12px;
+}
+
+
+/* TITLE */
+
+.otp-card h2 {
+    font-size: 18px;
+    margin-bottom: 24px;
+}
+
+.otp-card h2 span {
+    display: block;
+    margin-top: 6px;
+    font-weight: 700;
+}
+
+
+/* OTP INPUTS */
+
+.otp-inputs {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.otp-inputs input {
+    caret-color: #1a73e8;
+}
+
+.otp-inputs input {
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+
+/* BUTTON */
+
+.otp-btn {
+    width: 100%;
+    padding: 12px;
+    background: #6fa3ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+/* TIMER */
+
+.otp-timer {
+    margin-top: 18px;
+    font-weight: 600;
+    color: #333;
 }

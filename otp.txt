@@ -1,0 +1,71 @@
+import "../styles/auth.css";
+import { useEffect, useState } from "react";
+
+const Otp = () => {
+  const [timer, setTimer] = useState(90);
+
+  useEffect(() => {
+    if (timer === 0) return;
+    const interval = setInterval(() => {
+      setTimer((t) => t - 1);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [timer]);
+
+  const formatTime = (t) => {
+    const m = String(Math.floor(t / 60)).padStart(2, "0");
+    const s = String(t % 60).padStart(2, "0");
+    return `${m}:${s}`;
+  };
+
+  return (
+    <div className="eci-layout">
+
+      {/* HEADER */}
+      <div className="eci-header">
+        <div className="eci-logo">
+          <strong>ECINet</strong> | VOTERS’ SERVICE PORTAL
+        </div>
+        <div className="nav-btns">
+          <a href="/">Login</a>
+          <a href="/signup">Sign-Up</a>
+        </div>
+      </div>
+
+      {/* BODY */}
+      <div className="eci-body">
+        <div className="eci-card otp-card">
+
+          <div className="otp-back">← Back</div>
+
+          <h3>Enter the OTP received on</h3>
+          <p className="otp-mobile">+91XXXXXXXXXX</p>
+
+          {/* OTP BOXES */}
+          <div className="otp-inputs">
+            {[...Array(6)].map((_, i) => (
+              <input key={i} maxLength="1" />
+            ))}
+          </div>
+
+          <button className="primary-btn">Verify & Login</button>
+
+          {/* TIMER */}
+          <div className="otp-timer">
+            Resend OTP in :
+            <span className="timer-circle">{formatTime(timer)}</span>
+          </div>
+
+        </div>
+      </div>
+
+      {/* FOOTER */}
+      <div className="eci-footer">
+        Copyright © ECI 2025. All Rights Reserved. Privacy Policy
+      </div>
+
+    </div>
+  );
+};
+
+export default Otp;

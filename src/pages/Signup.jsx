@@ -2,56 +2,75 @@ import "../styles/auth.css";
 import { useState } from "react";
 
 const Signup = () => {
-  const [tab, setTab] = useState("resident");
+  const [captcha, setCaptcha] = useState("7f6Qc");
+
+  const refreshCaptcha = () => {
+    const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+    let newCaptcha = "";
+    for (let i = 0; i < 5; i++) {
+      newCaptcha += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    setCaptcha(newCaptcha);
+  };
 
   return (
-    <>
-      <div className="eci-header">
-        <h1>EDUCONNECT-STUDENT EDUCATION</h1>
+    <div className="eci-layout">
+
+      {/* HEADER */}
+      <header className="eci-header">
+        <h1>NK-EDCNT</h1>
         <div className="nav-btns">
           <a href="/">Login</a>
-          <a href="/signup">Sign-Up</a>
+          <a href="/signup" className="active">Sign-Up</a>
         </div>
-      </div>
+      </header>
 
-      <div className="eci-container">
+      {/* BODY */}
+      <main className="eci-body">
         <div className="eci-card">
+
           <h2>Sign-Up</h2>
-          <p>
+          <p className="login-link">
             Already have an account? <a href="/">Login</a>
           </p>
 
-          <div className="tabs">
-            <div
-              className={`tab ${tab === "resident" ? "active" : ""}`}
-              onClick={() => setTab("resident")}
-            >
-              EDU CONNECT-PLUGIN
-            </div>
+          {/* TYPE */}
+          <div className="elector-tabs">
+            <center><span className="active"></span></center>
           </div>
-          
-          <label>Mobile Number *</label>
+
+          <label>Mobile Number <span>*</span></label>
           <input placeholder="Enter Mobile Number" />
 
           <label>Email address (optional)</label>
           <input placeholder="Enter email address (optional)" />
 
-          <div className="captcha-box">
-            <div className="captcha-img">7 a n g</div>
-            <span>↻</span>
+          {/* CAPTCHA */}
+          <div className="captcha-wrapper">
+            <div className="captcha-box">{captcha}</div>
+            <button
+              type="button"
+              className="captcha-refresh"
+              onClick={refreshCaptcha}
+              title="Refresh Captcha"
+            >
+              ↻
+            </button>
           </div>
 
-          <label>Captcha *</label>
+          <label>Captcha <span>*</span></label>
           <input placeholder="Enter Captcha" />
 
-          <button>Continue</button>
+          <button className="primary-btn">Continue</button>
         </div>
-      </div>
+      </main>
 
-      <div className="footer">
-        Copyright © K.S.R College of Engineering, T.gode,. 2025 | Privacy Policy
-      </div>
-    </>
+      {/* FOOTER */}
+      <footer className="eci-footer">
+        Copyright © K.S.R College of Engineering, T.gode., 2025 | Privacy Policy
+      </footer>
+
+    </div>
   );
 };
 
